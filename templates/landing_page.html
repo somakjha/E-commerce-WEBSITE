@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="icon" href="static/common/logo_final_2.png" type="image/gif" sizes="16x16">
+<link rel="stylesheet" href="static/landing_page.css">
+<title>
+    Login | SAS Online Store
+  </title>
+</head>
+<body>
+  {% if not_verified_email %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> Email not verfied. Verify Email first.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  {% if bad_login %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> Email/Password incorrect.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  {% if forgot_password %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> A password reset link have been sent to your Email. Kindly click the link to reset you password.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  {% if POST_request %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Congratulations!</strong> You have been registered. Kindly verify you E-mail. To verify you E-mail, go to your inbox and click the link.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  {% if incorrect_email %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> Email is not registered with us.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  {% if logged_out %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Successfully!</strong> Logged out.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  {% if first_login %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> Login First.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  {% if Email_already_registered %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> Email already registered.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="static/common/logo_final_2.png" id="icon" alt="Use Icon" />
+      </div>
+
+      <!-- Login Form -->
+      <form action='login' method="post">
+        {% csrf_token %}
+        <input type="email" id="login" class="fadeIn second" name="email" placeholder="E-mail" autocomplete="off" required/>
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" autocomplete="off" required/>
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form> 
+      <p class="fadeIn fourth"style="font-family:sans-serif; color:white;">Not Registered Yet?</p>
+      <form action="register">
+        <input type="submit" class="fadeIn fourth" value="Register">
+      </form>
+      
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#" data-target="#pwdModal" data-toggle="modal">Forgot Password?</a>
+      </div>
+    </div>
+  </div>
+
+      {% comment %} modal start {% endcomment %}
+      <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center" style="color:white;margin-left:40px">What's My Password?</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                      <div class="panel panel-default">
+                          <div class="panel-body">
+                              <div class="text-center">
+                                
+                                <p style="color:white">If you have forgotten your password you can reset it here.</p>
+                                  <div class="panel-body">
+                                    <form  method="post" action="forgot_password">
+                                      {% csrf_token %}
+                                      <fieldset>
+                                          <div class="form-group">
+                                              <input class="form-control input-lg" placeholder="E-mail Address" name="forgot_pass_email" type="email" id="forgot_pass_email" style="color:white" autocomplete="off" required />
+                                          </div>
+                                          <button class="btn btn-lg btn-outline-success" type="submit">Reset My Password</button>
+                                      </fieldset>
+                                    </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+            </div>
+              <div class="modal-footer">
+                  <div class="col-md-12">
+                  <button class="btn btn-outline-warning" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                </div>	
+              </div>
+          </div>
+        </div>
+      </div>
+      {% comment %} modal end {% endcomment %}
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

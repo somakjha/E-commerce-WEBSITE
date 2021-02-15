@@ -1,0 +1,280 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('common/page_bg.jpg');
+    height: 100vh;
+    }
+  #soham {
+    background-image: url("common/page_bg.jpg");
+    -webkit-box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+    box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+    }
+  #right {
+    float: right;
+  }
+  
+  #image_container {
+      padding-right: 40px;
+  }  
+  
+   span {
+    margin: 0px!important;
+    text-align:center;
+    min-width:144.94px
+  }
+   
+    .dropdown {
+      position: relative;
+      align-items: center;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    #right {
+      float: right;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: fixed;
+      box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: rgb(255, 255, 255);
+      padding: 12px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {background-color: rgb(80, 76, 76);}
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+      min-width:144.94px
+    }
+
+    .boxcontainer
+    {
+        margin-left:40%;
+        position: relative;
+        width: 300px;
+        height: 42px;
+        border:4px solid #297fb94b;
+        padding: 0px 10px;
+        border-radius: 50px;
+        
+    }
+
+    .elementcontainer{
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+
+    }
+
+    .search
+    {
+        border:none;
+        height:100%;
+        background-color: #fcfcfc00;
+        color:white;
+    }
+    .Search:focus{
+      outline-width: 0;
+    }
+
+/*styling ad card*/
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    right:-50px;
+    text-align: center;
+    color:white;
+    font-family: "Poppins", sans-serif;
+  
+ background-color: rgb(48, 47, 47);
+  }
+  .column {
+  
+    width: 60%;
+    padding: 0 10px;
+  }
+  
+  
+  .row {margin: 0 -5px;}
+  
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .heading_interest{
+ 
+    
+    color: rgb(255, 255, 255);
+    font-family: "Poppins", sans-serif;
+  }
+
+  button{
+    width: max-content;
+    background-color: rgb(145 145 145);
+    color:white;
+  }
+  .no-click {
+    pointer-events: none;
+}
+
+  .buy_ad
+  {
+    width: 25%;
+    height: 150px;
+    border: 5px solid #555;
+    margin-top: 10px;
+    margin-left:30px;
+    float:left
+  }
+
+  .container101 {
+    padding:15px
+  }
+
+  #search_bttn:active{
+    border:grey solid 2px;
+  }
+
+  #form{
+    margin-bottom:0px;
+  }
+
+  /* ad modal implemented here */
+
+
+
+/* The Modal (background) */
+#myymodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+  }
+  
+  /* Modal Content */
+  #mcontent {
+  position: relative;
+  background-color: #0000008c;
+  margin: 20%;
+  margin-top: 1%;
+  margin-left:14%;
+  padding: 1%;
+  border: 1px solid #888;
+  width: 70%;
+  
+  
+  box-shadow: 0 4px 8px 0 rgb(52 50 50 / 0%),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+  
+  
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .cloose {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  }
+  
+  .cloose:hover,
+  .cloose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  }
+  
+  #mheader {
+  padding: 20px 16px;
+  background-color: #353333;
+  color: white;
+  text-align: center;
+  }
+  
+  #mbody {padding: 10px 0px 0px 10px;
+    background-color: #353333;
+  color:white;
+  
+  }
+  
+  #mfooter {
+  padding: 2px 16px;
+  background-color: #353333;
+  color: white;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #383838;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #242424;
+  }
+  /* ended ad modal here */
+
+
+/* do search start */
+
+#do_search
+{
+  margin-left:30%;
+width:55%;
+  height:50%;
+}
+#do_search_text
+{ position:relative;
+  color:white;
+  font-size: xx-large;
+  left:10%;
+  bottom:80px;
+} 
+#do_search_img
+{
+  width: 10%;
+}
+/* do search end */
+
+
+  

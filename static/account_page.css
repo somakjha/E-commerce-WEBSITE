@@ -1,0 +1,87 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('common/page_bg.jpg');
+    height: 100vh;
+}
+#soham {
+background-image: url("common/page_bg.jpg");
+-webkit-box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+}
+
+#right {
+    float: right;
+}
+
+#image_container {
+    padding-right: 40px;
+}  
+
+span {
+margin: 0px!important;
+text-align:center;
+min-width:144.94px
+}
+
+.dropdown {
+    position: relative;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#right {
+    float: right;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: rgb(80, 76, 76);}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    min-width:144.94px
+}
+
+.container101 {
+    padding:15px
+}
+
+.pad{
+    padding-top:10%;
+}
+#left{
+    float:left;
+    margin-left:10%;
+    border: 8px solid #6c757d;
+}
+#dp {
+    
+    border-radius: 8px;
+}
+
+.text{
+    color:white; 
+    font-size:20px;
+    padding-left:5%;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    color: white;
+    padding-top:10%;
+  }

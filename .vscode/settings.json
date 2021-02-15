@@ -1,0 +1,19 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 16,
+    "editor.quickSuggestions": true,
+    "diffEditor.codeLens": true,
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.suggest.showKeywords": true,
+    "editor.codeLens": true,
+    "editor.wordBasedSuggestions": true,
+    "files.associations": {
+        "**/*.html": "html",
+        "**/templates/**/*.html": "django-html",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    },
+    "editor.suggest.showSnippets": true,
+    "python.pythonPath": "C:\\Users\\atharva\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+}

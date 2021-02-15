@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <link rel="icon" href="static/common/logo_final_2.png" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+  <link rel="stylesheet" href="static\lease_page.css">
+<title>
+    Lease | SAS Online Store
+  </title>
+</head>
+
+<body>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXwgisDN7kx6BMZCIwYjj8KNDgmJuz1Mg",
+      authDomain: "exampledjango-4af38.firebaseapp.com",
+      databaseURL: "https://exampledjango-4af38.firebaseio.com",
+      projectId: "exampledjango-4af38",
+      storageBucket: "exampledjango-4af38.appspot.com",
+      messagingSenderId: "476609483924",
+      appId: "1:476609483924:web:14a07bf9950ed344809081",
+      measurementId: "G-Q8RNK0P4KT"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    //console.log(firebase.storage)
+  </script>
+  <script type="text/javascript" src="static/lease_page.js"></script>
+  <script type="text/javascript" src="static/lease_page1.js"></script>
+  <div class="navbar navbar-expand-lg navbar-dark bg-dark" id="soham">
+    <a class="navbar-brand" href="home" id="image_container">
+      <img src="static/common/logo_final_2.png" width="120" height="60" loading="lazy" alt="404">
+    </a>
+    <div class="dropdown">
+      <span class="navbar-brand mb-0 h1">Social</span>
+      <div class="dropdown-content">
+        <a href="texts">Texts</a>
+        <a href="interests">Interests</a>
+        <a href="confirmations">Confirmations</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <span class="navbar-brand mb-0 h1">Goods</span>
+      <div class="dropdown-content">
+        <a href="buy">Buy</a>
+        <a href="sell">Sell</a>
+        <a href="rent">Rent</a>
+        <a href="lease">Lease</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <span class="navbar-brand mb-0 h1">Services</span>
+      <div class="dropdown-content">
+        <a href="render_service">Request Service</a>
+        <a href="require_service">Render Service</a>
+      </div>
+    </div>
+    <div class="dropdown" id="screenSizeChange">
+      <span class="navbar-brand mb-0 h1"> Hi , {{user_name}}</span>
+      <div class="dropdown-content">
+        <a href="account_details">Account Details</a>
+        <a href="all_transactions">All Transactions</a>
+        <a href="logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--seller ads-->
+  <div class="ads_shown" id="ads">
+    <span>
+      <h2 id="create_ad">Create a new AD <button type="button" accept="image/*" class="btn btn-primary"
+          data-toggle="modal" data-target="#myModal" id="button_create">
+          Create AD
+        </button></h2>
+    </span>
+    {% with items_list=items %}
+    {% if items_list|length > 0 %}
+    {% for item in items_list reversed %}
+    <span class="row">
+      <div class="column">
+        <div class="card">
+          <span class="container101">
+            <img class="buy_ad" src="{{item.3}}">
+            <h3>{{item.0}}</h3>
+            <p>{{item.1}}</p>
+            <h6>Price : ₹ {{item.4}}</h6>
+            <h6><strong>Leaser : {{item.2}}</strong></h6>
+            <button type="button" id="myyBtn" onclick="clickHandler(event)">Edit Details</button>
+        </div>
+      </div>
+
+
+      <!-- The Modal -->
+      <div id="myyModal" class="modal">
+        <!-- Modal content -->
+        <div id="mcontent">
+          <div id="mheader">
+            <h2>Edit Details</h2>
+            <span class="cloose">&times;</span>
+          </div>
+          <div id="mbody">
+            <span class="container101">
+              <img class="buy_ad" src="{{item.3}}">
+              <h3>{{item.0}}</h3>
+              <p>{{item.1}}</p>
+              <h6>Price : ₹ {{item.4}}</h6>
+              <h6><strong>Seller : {{item.2}}</strong></h6>
+              <div id="divform">
+                <label for="title2">Title : </label>
+                {{item.0}}
+                <br>
+                <label for="desc2">Description</label>
+                <br>
+                <textarea type="text" id="desc2" name="desc2" placeholder="Description" rows="4" cols="55" required
+                  autocomplete="off" style="border-radius:10px">{{item.1}}</textarea>
+                <br>
+                <label for="price2">Price</label>
+
+                <input type="text" id="price2" name="price2" placeholder="Price" required autocomplete="off"
+                  style="width:20%;" value="{{item.4}}" />
+                <input type="submit" value="Save Changes" onclick="updateLeaseAD('{{uid}}', '{{item.5}}', '{{item.0}}')">
+
+              </div>
+          </div>
+          <div id="mfooter">
+            <h3> </h3>
+          </div>
+        </div>
+      </div>
+    </span>
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+
+
+
+  <div class="container" id="create_ad">
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Enter Product Details</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+
+          <div class="modal-body">
+            <!--add title name-->
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+              </div>
+              <input type="text" id="title" class="form-control" aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm" autocomplete="off" required />
+            </div>
+            <!--ad description-->
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Description</span>
+              </div>
+              <textarea class="form-control" id="description" aria-label="With textarea" autocomplete="off"
+                required></textarea>
+            </div>
+            <br>
+            <!--price-->
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Price ₹</span>
+              </div>
+              <input type="text" id="price" class="form-control" aria-label="Amount (to the nearest rupee)"
+                autocomplete="off" required />
+              <div class="input-group-prepend">
+                <span class="input-group-text">Duration</span>
+              </div>
+              <input type="text" id="duration" class="form-control" aria-label="A duration" autocomplete="off"
+                required />
+            </div>
+            <br>
+            <!--image upload-->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Image</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" accept="image/*,.pdf" class="custom-file-input" id="customFile" name="filename">
+                <label class="custom-file-label" id="fileLabel" for="customFile">Choose file</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" onclick="upload('{{uid}}','{{full_name}}')" id="uploadclear" class="btn btn-danger"
+              data-dismiss="modal">Upload</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function () {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+  </script>
+
+  <script>
+    function changePaddingLeft(screenSize) {
+      if (screenSize.matches) {
+        document.getElementById("screenSizeChange").style.marginLeft = "550px";
+      }
+    }
+    var screenSize = window.matchMedia("(min-width: 1300px)")
+    changePaddingLeft(screenSize) // Call listener function at run time
+    screenSize.addListener(changePaddingLeft) // Attach listener function on state changes
+  </script>
+
+
+
+  <script>
+    function clickHandler(event) {
+      var x = event.currentTarget.parentElement;
+      y = x.parentElement;
+      z = y.parentElement;
+      a = z.parentElement;
+      my_modal = a.childNodes;
+      // Get the modal
+      var modal = my_modal[5];
+      // Get the button that opens the modal
+      var btn = event.currentTarget;
+      // Get the <span> element that closes the modal
+      var span = modal.childNodes[3].childNodes[1].childNodes[3];
+      console.log(span);
+      var y = span;
+      var x = y.parentElement;
+      // When the user clicks the button, open the modal 
+      btn.onclick = function () {
+        modal.style.display = "block";
+      }
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>

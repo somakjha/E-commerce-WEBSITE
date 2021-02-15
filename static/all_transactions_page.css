@@ -1,0 +1,98 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('common/page_bg.jpg');
+    height: 100vh;
+}
+#soham {
+background-image: url("common/page_bg.jpg");
+-webkit-box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+}
+
+#right {
+    float: right;
+}
+
+#image_container {
+    padding-right: 40px;
+}  
+
+span {
+margin: 0px!important;
+text-align:center;
+min-width:144.94px
+}
+
+.dropdown {
+    position: relative;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#right {
+    float: right;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    box-shadow: 3px 43px 87px 21px rgba(0,0,0,0.75);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: rgb(80, 76, 76);}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    min-width:144.94px
+}
+
+
+/* styling all transactions card */
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    right:-50px;
+    text-align: center;
+    color:white;
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(48, 47, 47);
+}
+.column {
+    width: 60%;
+    padding: 0 10px;
+}
+  
+  
+.row {
+    margin: 0 -5px;
+}
+  
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.a_transaction {
+    width: 25%;
+    border: 5px solid #555;
+    margin-top: 10px;
+    margin-left:30px;
+    float:left
+}
+
+.container101 {
+    padding:15px
+}
